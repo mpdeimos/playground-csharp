@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{5FC082DD-C114-4DC9-A1E0-15D3EA24045A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Mpdeimos.Playground.Templating</RootNamespace>
+    <AssemblyName>Mpdeimos.Playground.Templating</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr3.Runtime.3.5.0.3-alpha002\lib\net20\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr4.StringTemplate">
+      <HintPath>..\packages\Antlr4.StringTemplate.4.0.6.9004\lib\net35\Antlr4.StringTemplate.dll</HintPath>
+    </Reference>
+    <Reference Include="Cottle">
+      <HintPath>..\packages\Cottle.1.3.1.0\lib\net35\Cottle.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="StringTemplate\" />
+    <Folder Include="Cottle\" />
+    <Folder Include="DotLiquid\" />
+    <Folder Include="Base\" />
+    <Folder Include="StringTemplate\Resource\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="StringTemplate\TemplateManager.cs" />
+    <Compile Include="Base\ITemplateManager.cs" />
+    <Compile Include="Base\ITemplate.cs" />
+    <Compile Include="Base\TemplateManagerBase.cs" />
+    <Compile Include="Base\TemplateBase.cs" />
+    <Compile Include="StringTemplate\Template.cs" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <DotNetNamingPolicy DirectoryNamespaceAssociation="PrefixedHierarchical" ResourceNamePolicy="FileFormatDefault" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  <ItemGroup>
+    <EmbeddedResource Include="StringTemplate\Resource\simple.st" />
+    <EmbeddedResource Include="StringTemplate\Resource\plain.st" />
+    <EmbeddedResource Include="StringTemplate\Resource\properties.st" />
+    <EmbeddedResource Include="StringTemplate\Resource\subproperties.st" />
+    <EmbeddedResource Include="StringTemplate\Resource\condition.st" />
+    <EmbeddedResource Include="StringTemplate\Resource\loop.st" />
+    <EmbeddedResource Include="StringTemplate\Resource\concatenate.st" />
+  </ItemGroup>
+</Project>

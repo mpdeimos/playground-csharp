@@ -1,0 +1,1 @@
+﻿{obj.hello} {obj.world}!
