@@ -31,6 +31,9 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="DotLiquid">
+      <HintPath>..\packages\DotLiquid.1.8.0\lib\NET40\DotLiquid.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Antlr3.Runtime">
@@ -49,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Base\TemplateTestBase.cs" />
     <Compile Include="StringTemplate\TemplateTest.cs" />
+    <Compile Include="DotLiquid\TemplateTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -60,5 +64,6 @@
   <ItemGroup>
     <Folder Include="Base\" />
     <Folder Include="StringTemplate\" />
+    <Folder Include="DotLiquid\" />
   </ItemGroup>
 </Project>

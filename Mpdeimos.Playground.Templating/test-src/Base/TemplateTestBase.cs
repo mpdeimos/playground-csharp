@@ -20,7 +20,7 @@ namespace Mpdeimos.Playground.Templating.Base
 		public void TestPlainTemplate()
 		{
 			ITemplate template = this.templateManager.Get("plain");
-			Assert.AreEqual("Hello World!", template.Render());
+			AreEqualLines("Hello World!", template.Render());
 		}
 
 		[Test]
@@ -29,7 +29,7 @@ namespace Mpdeimos.Playground.Templating.Base
 			ITemplate template = this.templateManager.Get("simple");
 			template.Bind("hello", "Hello");
 			template.Bind("world", "World");
-			Assert.AreEqual("Hello World!", template.Render());
+			AreEqualLines("Hello World!", template.Render());
 		}
 
 		[Test]
@@ -40,7 +40,7 @@ namespace Mpdeimos.Playground.Templating.Base
 				Hello = "Hello",
 				World = "World"
 			});
-			Assert.AreEqual("Hello World!", template.Render());
+			AreEqualLines("Hello World!", template.Render());
 		}
 
 		[Test]
@@ -54,7 +54,7 @@ namespace Mpdeimos.Playground.Templating.Base
 					World = "World"
 				}
 			});
-			Assert.AreEqual("Hello World!", template.Render());
+			AreEqualLines("Hello World!", template.Render());
 		}
 
 		[Test]
@@ -62,11 +62,11 @@ namespace Mpdeimos.Playground.Templating.Base
 		{
 			ITemplate template = this.templateManager.Get("condition");
 			template.Bind("universe", true);
-			Assert.AreEqual("Hello Universe!", template.Render());
+			AreEqualLines("Hello Universe!", template.Render());
 
 			template = this.templateManager.Get("condition");
 			template.Bind("universe", false);
-			Assert.AreEqual("Hello World!", template.Render());
+			AreEqualLines("Hello World!", template.Render());
 		}
 
 		[Test]
@@ -74,11 +74,11 @@ namespace Mpdeimos.Playground.Templating.Base
 		{
 			ITemplate template = this.templateManager.Get("loop");
 			template.Bind("list", new List<string>{ "Munich", "World", "Universe" });
-			Assert.AreEqual("Hello Munich!\nHello World!\nHello Universe!\n", template.Render());
+			AreEqualLines("Hello Munich!\nHello World!\nHello Universe!\n", template.Render());
 
 			template = this.templateManager.Get("loop");
 			template.Bind("list", new List<string>{ "Munich" });
-			Assert.AreEqual("Hello Munich!\n", template.Render());
+			AreEqualLines("Hello Munich!\n", template.Render());
 		}
 
 		[Test]
@@ -86,11 +86,18 @@ namespace Mpdeimos.Playground.Templating.Base
 		{
 			ITemplate template = this.templateManager.Get("concatenate");
 			template.Bind("list", new List<string>{ "Munich", "World", "Universe" });
-			Assert.AreEqual("Hello Munich, World, Universe!", template.Render());
+			AreEqualLines("Hello Munich, World, Universe!", template.Render());
 
 			template = this.templateManager.Get("concatenate");
 			template.Bind("list", new List<string>{ "Munich" });
-			Assert.AreEqual("Hello Munich!", template.Render());
+			AreEqualLines("Hello Munich!", template.Render());
+		}
+
+		private static void AreEqualLines(string expected, string actual)
+		{
+			expected = expected.Replace("\r\n", "\n");
+			actual = actual.Replace("\r\n", "\n");
+			Assert.AreEqual(expected, actual);
 		}
 
 		protected abstract ITemplateManager CreateTemplateManager();
