@@ -53,6 +53,7 @@
     <Compile Include="Base\TemplateTestBase.cs" />
     <Compile Include="StringTemplate\TemplateTest.cs" />
     <Compile Include="DotLiquid\TemplateTest.cs" />
+    <Compile Include="Cottle\TemplateTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

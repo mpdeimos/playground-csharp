@@ -51,6 +51,7 @@
     <Folder Include="DotLiquid\" />
     <Folder Include="Base\" />
     <Folder Include="StringTemplate\Resource\" />
+    <Folder Include="Cottle\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="StringTemplate\TemplateManager.cs" />
@@ -61,6 +62,8 @@
     <Compile Include="StringTemplate\Template.cs" />
     <Compile Include="DotLiquid\Template.cs" />
     <Compile Include="DotLiquid\TemplateManager.cs" />
+    <Compile Include="Cottle\Template.cs" />
+    <Compile Include="Cottle\TemplateManager.cs" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
@@ -86,5 +89,12 @@
     <EmbeddedResource Include="DotLiquid\Resource\properties.liquid" />
     <EmbeddedResource Include="DotLiquid\Resource\simple.liquid" />
     <EmbeddedResource Include="DotLiquid\Resource\subproperties.liquid" />
+    <EmbeddedResource Include="Cottle\Resource\concatenate.cottle" />
+    <EmbeddedResource Include="Cottle\Resource\condition.cottle" />
+    <EmbeddedResource Include="Cottle\Resource\loop.cottle" />
+    <EmbeddedResource Include="Cottle\Resource\plain.cottle" />
+    <EmbeddedResource Include="Cottle\Resource\properties.cottle" />
+    <EmbeddedResource Include="Cottle\Resource\simple.cottle" />
+    <EmbeddedResource Include="Cottle\Resource\subproperties.cottle" />
   </ItemGroup>
 </Project>

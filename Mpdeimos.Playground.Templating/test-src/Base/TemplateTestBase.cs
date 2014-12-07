@@ -11,20 +11,20 @@ namespace Mpdeimos.Playground.Templating.Base
 		private ITemplateManager templateManager;
 
 		[SetUp]
-		public void Init()
+		public virtual void Init()
 		{
 			this.templateManager = CreateTemplateManager();
 		}
 
 		[Test]
-		public void TestPlainTemplate()
+		public virtual void TestPlainTemplate()
 		{
 			ITemplate template = this.templateManager.Get("plain");
 			AreEqualLines("Hello World!", template.Render());
 		}
 
 		[Test]
-		public void TestSimpleTemplate()
+		public virtual void TestSimpleTemplate()
 		{
 			ITemplate template = this.templateManager.Get("simple");
 			template.Bind("hello", "Hello");
@@ -33,7 +33,7 @@ namespace Mpdeimos.Playground.Templating.Base
 		}
 
 		[Test]
-		public void TestPropertiesTemplate()
+		public virtual void TestPropertiesTemplate()
 		{
 			ITemplate template = this.templateManager.Get("properties");
 			template.Bind("obj", new {
@@ -44,7 +44,7 @@ namespace Mpdeimos.Playground.Templating.Base
 		}
 
 		[Test]
-		public void TestSubPropertiesTemplate()
+		public virtual void TestSubPropertiesTemplate()
 		{
 			ITemplate template = this.templateManager.Get("subproperties");
 			template.Bind("obj", new {
@@ -58,7 +58,7 @@ namespace Mpdeimos.Playground.Templating.Base
 		}
 
 		[Test]
-		public void TestConditionTemplate()
+		public virtual void TestConditionTemplate()
 		{
 			ITemplate template = this.templateManager.Get("condition");
 			template.Bind("universe", true);
@@ -70,7 +70,7 @@ namespace Mpdeimos.Playground.Templating.Base
 		}
 
 		[Test]
-		public void TestLoopTemplate()
+		public virtual void TestLoopTemplate()
 		{
 			ITemplate template = this.templateManager.Get("loop");
 			template.Bind("list", new List<string>{ "Munich", "World", "Universe" });
@@ -82,7 +82,7 @@ namespace Mpdeimos.Playground.Templating.Base
 		}
 
 		[Test]
-		public void TestConcatenateTemplate()
+		public virtual void TestConcatenateTemplate()
 		{
 			ITemplate template = this.templateManager.Get("concatenate");
 			template.Bind("list", new List<string>{ "Munich", "World", "Universe" });

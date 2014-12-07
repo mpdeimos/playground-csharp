@@ -1,0 +1,2 @@
+﻿{for item in list:Hello {item}!
+}
