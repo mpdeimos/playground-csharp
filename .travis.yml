@@ -1,5 +1,6 @@
 language: csharp
 
-solution: Mpdeimos.Playground.Templating/Mpdeimos.Playground.Templating.sln
-
-after_script: mono Mpdeimos.Playground.Templating/packages/NUnit.Runners.2.6.3/tools/nunit-console.exe $(find . -path "*/bin/Debug/*_Test.dll")
+script: 
+  - nugest restore nuget restore "*/*.sln"
+  - xunit "*/*.sln"
+  - nunit-console $(find . -path "*/bin/*_Test.dll")
