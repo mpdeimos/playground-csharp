@@ -1,6 +1,6 @@
 language: csharp
 
 script: 
-  - nugest restore nuget restore "*/*.sln"
-  - xunit "*/*.sln"
-  - nunit-console $(find . -path "*/bin/*_Test.dll")
+  - nugest restore "*/*.sln"
+  - xbuild "*/*.sln"
+  - nunit-console $(find . -path "*/test-src/bin/*_Test.dll")
