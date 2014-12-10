@@ -1,5 +1,8 @@
 language: csharp
 
+install:
+  - sudo apt-get install -y nunit-console
+  
 script: 
   - nuget restore */*.sln
   - xbuild */*.sln
