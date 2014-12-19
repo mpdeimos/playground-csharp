@@ -2,9 +2,12 @@ language: csharp
 
 sudo: false
 
+env:
+  - NUNIT_VERSION=2.6.4
+
 install:
-  - nuget install nunit.runners -OutputDirectory bin
-  - NUNIT=`find bin -name nunit-console.exe`
+  - nuget install nunit.runners -Version $NUNIT_VERSION -OutputDirectory bin
+  - NUNIT=bin/NUnit.Runners.$NUNIT_VERSION/tools/nunit-console.exe
   - nuget restore */*.sln
 
 script: 
