@@ -1,9 +1,12 @@
 language: csharp
 
+sudo: false
+
 install:
-  - sudo apt-get install -y nunit-console
-  
-script: 
+  - nuget install nunit.runners -OutputDirectory bin
+  - NUNIT=`find bin -name nunit-console.exe`
   - nuget restore */*.sln
+
+script: 
   - xbuild */*.sln
-  - nunit-console $(find . -path "*/test-src/bin/*_Test.dll")
+  - mono $NUNIT $(find . -path "*/test-src/bin/*_Test.dll")
