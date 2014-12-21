@@ -11,6 +11,13 @@ namespace Mpdeimos.Playground.Templating.Cottle
 		{
 			return new TemplateManager();
 		}
+
+		[Test]
+		[Ignore("Not supported yet. Must write custom function for this to work.")]
+		public override void TestIncludeTemplate()
+		{
+			base.TestIncludeTemplate();
+		}
 	}
 }
 

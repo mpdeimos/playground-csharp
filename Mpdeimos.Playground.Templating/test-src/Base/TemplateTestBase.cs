@@ -93,6 +93,15 @@ namespace Mpdeimos.Playground.Templating.Base
 			AreEqualLines("Hello Munich!", template.Render());
 		}
 
+
+		[Test]
+		public virtual void TestIncludeTemplate()
+		{
+			ITemplate template = this.templateManager.Get("include");
+			template.Bind("var", new List<string>{ "World" });
+			AreEqualLines("Hello World!", template.Render());
+		}
+
 		private static void AreEqualLines(string expected, string actual)
 		{
 			expected = expected.Replace("\r\n", "\n");

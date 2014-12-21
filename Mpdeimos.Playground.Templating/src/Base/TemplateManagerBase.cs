@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 
 namespace Mpdeimos.Playground.Templating.Base
 {
@@ -13,15 +14,23 @@ namespace Mpdeimos.Playground.Templating.Base
 
 		private string ReadResource(string name)
 		{
-			var assembly = this.GetType().Assembly;
-			var @namespace = this.GetType().Namespace;
-			using (var stream = assembly.GetManifestResourceStream(@namespace + ".Resource." + name))
+			using (var stream = GetBaseAssembly().GetManifestResourceStream(GetBaseNamespace() + "." + name))
 			{
 				using (var reader = new StreamReader(stream))
 				{
 					return reader.ReadToEnd();
 				}
 			}
+		}
+
+		protected string GetBaseNamespace()
+		{
+			return this.GetType().Namespace + ".Resource";
+		}
+
+		protected Assembly GetBaseAssembly()
+		{
+			return this.GetType().Assembly;
 		}
 
 		protected abstract ITemplate Create(string source);

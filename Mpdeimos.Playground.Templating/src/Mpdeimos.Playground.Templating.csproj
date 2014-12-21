@@ -96,5 +96,7 @@
     <EmbeddedResource Include="Cottle\Resource\properties.cottle" />
     <EmbeddedResource Include="Cottle\Resource\simple.cottle" />
     <EmbeddedResource Include="Cottle\Resource\subproperties.cottle" />
+    <EmbeddedResource Include="DotLiquid\Resource\include.liquid" />
+    <EmbeddedResource Include="DotLiquid\Resource\_included.liquid" />
   </ItemGroup>
 </Project>
