@@ -13,3 +13,9 @@ install:
 script: 
   - xbuild */*.sln
   - mono $NUNIT $(find . -path "*/test-src/bin/*_Test.dll")
+
+notifications:
+  email:
+    recipients:
+      - secure: $NOTIFICATION_EMAIL
+    on_success: always
