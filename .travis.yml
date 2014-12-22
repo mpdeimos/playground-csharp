@@ -16,6 +16,5 @@ script:
 
 notifications:
   email:
-    recipients:
-      - secure: $NOTIFICATION_EMAIL
+    recipients: $NOTIFICATION_EMAIL
     on_success: always
