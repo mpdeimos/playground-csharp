@@ -13,7 +13,7 @@ namespace Mpdeimos.Playground.Templating.StringTemplate
 		}
 
 		[Test]
-		[Ignore("Not supported yet.")]
+		[Ignore("Not possible.")]
 		public override void TestIncludeTemplate()
 		{
 			base.TestIncludeTemplate();

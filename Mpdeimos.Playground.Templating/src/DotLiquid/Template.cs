@@ -7,6 +7,8 @@ namespace Mpdeimos.Playground.Templating.DotLiquid
 	{
 		private DL.Template template;
 
+		private DL.Hash hash = new DL.Hash();
+
 		public Template(string source)
 			: base(source)
 		{
@@ -15,12 +17,12 @@ namespace Mpdeimos.Playground.Templating.DotLiquid
 
 		public override void Bind(string key, object value)
 		{
-			template.Assigns.Add(key, value);
+			hash.Add(key, value);
 		}
 
 		public override string Render()
 		{
-			return template.Render();
+			return template.Render(hash);
 		}
 	}
 }

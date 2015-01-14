@@ -6,7 +6,7 @@ namespace Mpdeimos.Playground.Templating.Base
 {
 	public abstract class TemplateManagerBase : ITemplateManager
 	{
-		public ITemplate Get(string name)
+		public virtual ITemplate Get(string name)
 		{
 			string source = this.ReadResource(GetTemplateFilename(name));
 			return Create(source);
