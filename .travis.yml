@@ -8,10 +8,10 @@ env:
 install:
   - nuget install nunit.runners -Version $NUNIT_VERSION -OutputDirectory bin
   - NUNIT=bin/NUnit.Runners.$NUNIT_VERSION/tools/nunit-console.exe
-  - nuget restore */*.sln
+  - find . -name "*.sln" -exec nuget restore {} \;
 
 script: 
-  - xbuild */*.sln
+  - find . -name "*.sln" -exec xbuild {} \;
   - mono $NUNIT $(find . -path "*/test-src/bin/*_Test.dll")
 
 notifications:
